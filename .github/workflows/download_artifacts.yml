@@ -16,4 +16,5 @@ jobs:
           github-token: ${{ secrets.GH_PAT }}
           run-id: ${{ inputs.run_id }}
       - run: |
-          ls -la
+          cat art1/test.txt
+          cat art2/test2.txt
