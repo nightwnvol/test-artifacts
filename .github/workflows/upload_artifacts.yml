@@ -1,0 +1,24 @@
+name: Upload Artifacts
+run-name: ${{ github.run_id }}
+on: push
+jobs:
+  artifact_1:
+    name: Upload artifact 1
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          touch test.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: art1
+          path: test.txt
+  artifact_2:
+    name: Upload artifact 2
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          touch test2.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: art2
+          path: test2.txt
