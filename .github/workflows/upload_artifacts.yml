@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          touch test.txt
+          echo hello_1 > test.txt
       - uses: actions/upload-artifact@v4
         with:
           name: art1
@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          touch test2.txt
+          echo hello_2 > test2.txt
       - uses: actions/upload-artifact@v4
         with:
           name: art2
