@@ -13,6 +13,7 @@ jobs:
     steps:
       - uses: actions/download-artifact@v4
         with:
+          github-token: ${{ secrets.GH_PAT }}
           run-id: ${{ inputs.run_id }}
       - run: |
           ls -la
