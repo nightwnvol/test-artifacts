@@ -29,5 +29,5 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: |
-          gh auth login --with-token ${{ github.token }}
+          gh auth login --with-token <<< "${{ github.token }}"
           gh variable set ARTIFACTS_RUN_ID --body ${{ github.run_id }}
