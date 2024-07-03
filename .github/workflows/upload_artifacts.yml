@@ -29,6 +29,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: |
-          gh variable set ARTIFACTS_RUN_ID --body ${{ github.run_id }}
+          gh secret set ARTIFACTS_RUN_ID --body ${{ github.run_id }}
         env:
           GH_TOKEN: ${{ secrets.GH_PAT }}
