@@ -30,5 +30,4 @@ jobs:
       GH_TOKEN: ${{ github.token }}
     steps:
       - run: |
-          echo ${{ github.run_id }} > run_id.txt
-          gh secret set ARTIFACTS_RUN_ID < run_id.txt
+          gh secret set ARTIFACTS_RUN_ID --body ${{ github.run_id }}
