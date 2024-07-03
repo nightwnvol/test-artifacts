@@ -27,6 +27,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: [artifact_1, artifact_2]
     steps:
+      - uses: actions/checkout@v4
       - run: |
           gh secret set ARTIFACTS_RUN_ID --body ${{ github.run_id }}
         env:
