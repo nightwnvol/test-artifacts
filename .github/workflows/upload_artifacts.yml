@@ -28,4 +28,5 @@ jobs:
     needs: [artifact_1, artifact_2]
     steps:
       - run: |
-          gh secret set ARTIFACTS_RUN_ID < ${{ github.run_id }}
+          echo ${{ github.run_id }} > run_id.txt
+          gh secret set ARTIFACTS_RUN_ID < run_id.txt
