@@ -1,11 +1,6 @@
 name: Download Artifacts
 run-name: ${{ github.run_id }}
-on:
-  workflow_dispatch:
-    inputs:
-      run_id:
-        required: true
-        type: string
+on: workflow_dispatch
 jobs:
   download_and_cat:
     name: Download and cat artifacts
@@ -14,9 +9,10 @@ jobs:
       - uses: actions/download-artifact@v4
         with:
           github-token: ${{ secrets.GH_PAT }}
-          run-id: ${{ inputs.run_id }}
+          run-id: ${{ secrets.ARTIFACTS_RUN_ID }}
+          path: dist
           merge-multiple: true
       - run: |
           ls -la
-          cat test.txt
-          cat test2.txt
+          cat dist/test.txt
+          cat dist/test2.txt
