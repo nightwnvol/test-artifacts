@@ -26,8 +26,8 @@ jobs:
     name: Create/Update ARTIFACTS_RUN_ID secret
     runs-on: ubuntu-latest
     needs: [artifact_1, artifact_2]
-    env:
-      GH_TOKEN: ${{ github.token }}
     steps:
       - run: |
           gh secret set ARTIFACTS_RUN_ID --body ${{ github.run_id }}
+        env:
+          GH_TOKEN: ${{ github.token }}
