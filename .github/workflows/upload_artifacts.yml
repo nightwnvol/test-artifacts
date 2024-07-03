@@ -22,13 +22,10 @@ jobs:
         with:
           name: art2
           path: test2.txt
-  run_id_secret:
-    name: Create/Update ARTIFACTS_RUN_ID secret
+  run_id_variable:
+    name: Create/Update ARTIFACTS_RUN_ID variable
     runs-on: ubuntu-latest
     needs: [artifact_1, artifact_2]
     steps:
-      - uses: actions/checkout@v4
       - run: |
-          gh secret set ARTIFACTS_RUN_ID --body ${{ github.run_id }}
-        env:
-          GH_TOKEN: ${{ github.token }}
+          gh variable set --body ${{ github.run_id }}
