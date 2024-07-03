@@ -28,6 +28,6 @@ jobs:
     needs: [artifact_1, artifact_2]
     steps:
       - run: |
-          gh variable set --body ${{ github.run_id }}
+          gh variable set ARTIFACTS_RUN_ID --body ${{ github.run_id }}
         env:
           GH_TOKEN: ${{ github.token }}
